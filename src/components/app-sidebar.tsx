@@ -1,8 +1,8 @@
-import { Home, Search, User2, ChevronUp } from "lucide-react"
+import { Home, Search, User2, ChevronUp, TvMinimalPlay } from "lucide-react";
 
 import { useAuth } from "../context/useAuth";
 
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import {
   Sidebar,
@@ -14,18 +14,17 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarFooter,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 // Menu items.
 const items = [
-
   {
     title: "Search",
     url: "#",
@@ -33,13 +32,17 @@ const items = [
   },
   {
     title: "Home",
-    url: "#",
+    url: "/",
     icon: Home,
   },
-]
+  {
+    title: "Watchlist",
+    url: "/Watchlist",
+    icon: TvMinimalPlay,
+  },
+];
 
 export function AppSidebar() {
-
   //destructure context "isAuthenticated"
   const { isAuthenticated } = useAuth();
 
@@ -80,14 +83,22 @@ export function AppSidebar() {
                 align="end"
                 className="w-[--radix-popper-anchor-width]"
               >
-                <DropdownMenuItem >
+                <DropdownMenuItem>
                   <span>
-                    {isAuthenticated ? "Account" : <Link to="/register">Login</Link>}
+                    {isAuthenticated ? (
+                      "Account"
+                    ) : (
+                      <Link to="/register">Login</Link>
+                    )}
                   </span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <span>
-                    {isAuthenticated ? "Logout" : <Link to="/login">Register</Link>}
+                    {isAuthenticated ? (
+                      "Logout"
+                    ) : (
+                      <Link to="/login">Register</Link>
+                    )}
                   </span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -96,5 +107,5 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

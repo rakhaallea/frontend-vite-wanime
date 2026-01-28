@@ -119,5 +119,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  width: auto !important;
+  height: auto;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
